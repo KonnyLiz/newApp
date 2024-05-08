@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Label = (props) => {
+const Label = ({style}) => {
 
   // using states
   const [name, setName] = useState('Konny');
@@ -12,7 +12,10 @@ const Label = (props) => {
   }
 
   return (
-    <Text onPress={changeName}>
+    <Text
+      style={[styles.text, style]}
+      onPress={changeName}
+      >
       {name}
     </Text>
   )
@@ -21,21 +24,36 @@ const Label = (props) => {
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>
-        <Label>
-          Konny y Joseph
-        </Label>
-      </Text>
+      <Label style={styles.red} />
+      <Label style={styles.green} />
+      <Label style={styles.blue} />
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  text: {
+    color: 'white',
+    fontSize: 30,
+  },
+  red: {
+    // flex: 1, // 1/6 of the screen
+    backgroundColor: 'red',
+  },
+  green: {
+    // flex: 2, // 2/6 of the screen
+    backgroundColor: 'green',
+  },
+  blue: {
+    // flex: 3, // 3/6 of the screen
+    backgroundColor: 'blue',
+  },
   container: {
-    flex: 1,
+    flex: 1, // 1/1 of the screen
+    flexDirection: 'row', // horizontal and column layout
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center', // center the items horizontally
+    justifyContent: 'flex-end', // center the items vertically
   },
 });
