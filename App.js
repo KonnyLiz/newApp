@@ -1,10 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const Label = (props) => {
+
+  // using states
+  const [name, setName] = useState('Konny');
+
+  const changeName = () => {
+    setName('Joseph');
+  }
+
   return (
-    <Text>
-      {props.children || 'Default Text'}
+    <Text onPress={changeName}>
+      {name}
     </Text>
   )
 }
@@ -15,7 +24,6 @@ export default function App() {
       <Text>
         <Label>
           Konny y Joseph
-          <Label />
         </Label>
       </Text>
       <StatusBar style="auto" />
