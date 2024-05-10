@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Dimensions, 
+  Button, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity,
+  TouchableWithoutFeedback
+} from 'react-native';
 
 // const to get the width and height of the screen
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const Label = ({style}) => {
+const Label = ({ style }) => {
 
   // using states
   const [name, setName] = useState('Konny');
@@ -18,7 +21,7 @@ const Label = ({style}) => {
     <Text
       // style={[styles.text, style]}
       onPress={changeName}
-      >
+    >
       {name}
     </Text>
   )
@@ -29,6 +32,7 @@ export default function App() {
   // creating variable to store the name using states
   // the param of useState is the initial value of the variable name
   const [name, setName] = useState('');
+  const [submit, setSubmit] = useState('');
 
   // console.log(name);
 
@@ -36,16 +40,69 @@ export default function App() {
     <View style={styles.container}>
 
       <Text>
-        Text: {name}
+        Text: {submit}
       </Text>
-      <TextInput 
+      <TextInput
         style={styles.input}
-        placeholder='Enter your name' 
+        placeholder='Enter your name'
         onChangeText={text => setName(text)}
 
         // setting the default value of the input
-        defaultValue={name} 
+        defaultValue={name}
       />
+
+      <Button
+        title='Submit'
+        onPress={() => {
+          setSubmit(name);
+          alert('Text saved: ' + name);
+        }}
+      />
+
+      <TouchableHighlight
+        underlayColor={'red'} // color when pressed
+        activeOpacity={0.2} // opacity of text when pressed
+        onPress={() => {
+          setSubmit(name);
+          alert('Text saved: ' + name);
+        }}>
+        <View style={styles.view}>
+          <Text>Submit</Text>
+        </View>
+      </TouchableHighlight>
+
+      <TouchableNativeFeedback
+        background={TouchableNativeFeedback.Ripple('green', true)} // color when pressed
+        onPress={() => {
+          setSubmit(name);
+          alert('Text saved: ' + name);
+        }}>
+        <View style={styles.view}>
+          <Text>Submit</Text>
+        </View>
+      </TouchableNativeFeedback>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setSubmit(name);
+          alert('Text saved: ' + name);
+        }}>
+        <View style={styles.view}>
+          <Text>Submit</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableWithoutFeedback
+        style={styles.button}
+        onPress={() => {
+          setSubmit(name);
+          alert('Text saved: ' + name);
+        }}>
+        <View style={styles.view}>
+          <Text>Submit</Text>
+        </View>
+      </TouchableWithoutFeedback>
 
       <StatusBar style="auto" />
     </View>
@@ -69,6 +126,16 @@ const styles = StyleSheet.create({
   //   // flex: 3, // 3/6 of the screen
   //   backgroundColor: 'blue',
   // },
+  button: {
+    backgroundColor: 'blue'
+  },
+  view: {
+    width: 100,
+    height: 50,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   input: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
