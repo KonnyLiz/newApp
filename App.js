@@ -1,8 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Dimensions, 
-  Button, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity,
-  TouchableWithoutFeedback
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Dimensions,
+  Button,
+  TouchableHighlight,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  ScrollView,
 } from 'react-native';
 
 // const to get the width and height of the screen
@@ -39,70 +48,113 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <Text>
-        Text: {submit}
-      </Text>
-      <TextInput
-        style={styles.input}
-        placeholder='Enter your name'
-        onChangeText={text => setName(text)}
+      <ScrollView style={styles.scrollView}>
 
-        // setting the default value of the input
-        defaultValue={name}
-      />
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <Text>Text: {submit} </Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Enter your name'
+          onChangeText={text => setName(text)}
 
-      <Button
-        title='Submit'
-        onPress={() => {
-          setSubmit(name);
-          alert('Text saved: ' + name);
-        }}
-      />
+          // setting the default value of the input
+          defaultValue={name}
+        />
 
-      <TouchableHighlight
-        underlayColor={'red'} // color when pressed
-        activeOpacity={0.2} // opacity of text when pressed
-        onPress={() => {
-          setSubmit(name);
-          alert('Text saved: ' + name);
-        }}>
-        <View style={styles.view}>
-          <Text>Submit</Text>
-        </View>
-      </TouchableHighlight>
+        <Button
+          title='Submit'
+          onPress={() => {
+            setSubmit(name);
+            alert('Text saved: ' + name);
+          }}
+        />
 
-      <TouchableNativeFeedback
-        background={TouchableNativeFeedback.Ripple('green', true)} // color when pressed
-        onPress={() => {
-          setSubmit(name);
-          alert('Text saved: ' + name);
-        }}>
-        <View style={styles.view}>
-          <Text>Submit</Text>
-        </View>
-      </TouchableNativeFeedback>
+        <TouchableHighlight
+          underlayColor={'red'} // color when pressed
+          activeOpacity={0.2} // opacity of text when pressed
+          onPress={() => {
+            setSubmit(name);
+            alert('Text saved: ' + name);
+          }}>
+          <View style={styles.view}>
+            <Text>Submit</Text>
+          </View>
+        </TouchableHighlight>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          setSubmit(name);
-          alert('Text saved: ' + name);
-        }}>
-        <View style={styles.view}>
-          <Text>Submit</Text>
-        </View>
-      </TouchableOpacity>
+        <TouchableNativeFeedback
+          background={TouchableNativeFeedback.Ripple('green', true)} // color when pressed
+          onPress={() => {
+            setSubmit(name);
+            alert('Text saved: ' + name);
+          }}>
+          <View style={styles.view}>
+            <Text>Submit</Text>
+          </View>
+        </TouchableNativeFeedback>
 
-      <TouchableWithoutFeedback
-        style={styles.button}
-        onPress={() => {
-          setSubmit(name);
-          alert('Text saved: ' + name);
-        }}>
-        <View style={styles.view}>
-          <Text>Submit</Text>
-        </View>
-      </TouchableWithoutFeedback>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            setSubmit(name);
+            alert('Text saved: ' + name);
+          }}>
+          <View>
+            <Text>Submit</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableWithoutFeedback
+          style={styles.button}
+          onPress={() => {
+            setSubmit(name);
+            alert('Text saved: ' + name);
+          }}>
+          <View style={styles.view}>
+            <Text>Submit</Text>
+          </View>
+        </TouchableWithoutFeedback>
+
+      </ScrollView>
 
       <StatusBar style="auto" />
     </View>
@@ -149,5 +201,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center', // center the items horizontally
     justifyContent: 'center', // center the items vertically
+  },
+  scrollView: {
+    width: width,
+    height: height,
   },
 });
